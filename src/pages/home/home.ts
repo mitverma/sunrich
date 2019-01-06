@@ -19,5 +19,6 @@ export class HomePage {
 	registerPage(){
 		this.navCtrl.push('register');
 	}
-
+	// link graph ql
+	//https://www.apollographql.com/docs/angular/basics/setup.html
 }

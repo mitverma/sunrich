@@ -6,14 +6,8 @@
     "experimentalDecorators": true,
     "lib": [
     "dom",
-    "es2015"
-    ],
-    "plugins": [
-    {
-      "name": "ts-graphql-plugin",
-      "schema": "schema.json",
-      "tag": "gql"
-    }
+    "es2015", 
+    "esnext.asynciterable"
     ],
     "module": "es2015",
     "moduleResolution": "node",
@@ -28,10 +22,6 @@
   "src/**/*.spec.ts",
   "src/**/__tests__/*.ts"
   ],
-  "scripts": {
-    // ...
-    "gen": "apollo-codegen generate --target ts --output src/__generated__.ts \"src/**/*.ts\""
-  },
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false
