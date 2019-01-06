@@ -1,0 +1,37 @@
+<!--
+  Generated template for the SigninPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+	<ion-navbar>
+		<ion-title>signin</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<div text-center>
+		<img src="assets/imgs/logo-demo.png" alt="" class="img-fluid" height="220px">
+		<!-- login form section -->
+		<div class="form-signin">
+			<form #formSignIn="ngForm" (ngSubmit)="signIn(formSignIn)">
+				<div class="form-group">
+					<label for="">Username</label>
+					<input type="text" class="form-control" [(ngModel)]="userDetail.username" name="username">
+				</div>
+				<div class="form-group">
+					<label for="">Password</label>
+					<input type="password" class="form-control" [(ngModel)]="userDetail.password" name="password">
+				</div>
+				<button ion-button round full text-capitalize class="btn-yellow">Sign In</button>
+				<p class="detail">Don't have an account ? <span (click)="registerNow();">Register</span></p>
+			</form>
+		</div>
+		<!-- login form section end-->
+		<div></div>
+	</div>
+</ion-content>

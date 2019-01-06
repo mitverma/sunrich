@@ -1,5 +1,7 @@
 {
   "name": "sunrich",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

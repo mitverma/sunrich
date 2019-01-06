@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
+
+@IonicPage({
+	name: 'home'
+})
+
+
 @Component({
 	selector: 'page-home',
 	templateUrl: 'home.html'
@@ -10,8 +16,8 @@ export class HomePage {
 	constructor(public navCtrl: NavController) {
 	}
 
-	openPage(){
-		this.navCtrl.push('about');
+	registerPage(){
+		this.navCtrl.push('register');
 	}
 
 }

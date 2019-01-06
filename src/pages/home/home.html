@@ -3,17 +3,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <!-- <ion-title>Home</ion-title> -->
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+<ion-content padding> 
+  <div  text-center>
+    <img src="assets/imgs/logo-demo.png" alt="" class="img-fluid" height="220px">
+  </div>
+  <h3 text-center class="register-text">
+    Register for us to Delivery
+  </h3>
+  <!-- <img src="" alt="" class="img-fluid"> -->
+  <button ion-button class="btn-yellow" full round text-capitalize (click)="registerPage();">Register</button>
+  <p text-center>
+    * Free Delivery is Available in Mumbai City Only
   </p>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-  <button ion-button (click)="openPage()">Open page</button>
-</ion-content>
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button>
+    <button ion-button (click)="registerPage()">Open page</button> -->
+  </ion-content>

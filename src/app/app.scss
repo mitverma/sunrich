@@ -14,3 +14,52 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+// colors
+$color-button : #daaa2c;
+$color-black: #000;
+$color-white: #fff;
+// colors end
+
+
+// classes
+.btn-yellow {
+	height: 42px;
+	background-color: $color-button;
+	&:hover:not(.disable-hover) {
+		background-color: $color-button;
+	}
+}
+// classes end
+
+ng-component {
+	background: url('../assets/imgs/main-bg.jpg') no-repeat;
+	background-size:  auto 100%;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-color: rgba(235, 186, 97, 0.3);
+	}
+
+	// header set to background transparent
+	// header
+	.header-md::after {
+		display: none;
+	}
+	.toolbar-background-md {
+		background-color: transparent;
+	}
+	// header end	
+	// header set to background transparent end
+
+	// content background to transparent
+	.content-md {
+		background-color: transparent;
+	}
+	// content background to transparent end
+}
