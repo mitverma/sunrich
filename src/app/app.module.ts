@@ -25,7 +25,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 
 
 @NgModule({
-  declarations: [
+  declarations: [ 
   MyApp, 
   ], 
   imports: [

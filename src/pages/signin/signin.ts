@@ -30,7 +30,7 @@ import { HttpClient } from '@angular/common/http';
  		console.log('ionViewDidLoad SigninPage');
  	}
  	registerNow(){
- 		this.navCtrl.push('register');
+ 		this.navCtrl.push('register'); 
  	}
 
  	signIn(form){

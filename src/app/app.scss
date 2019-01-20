@@ -20,31 +20,26 @@
 $color-button : #daaa2c;
 $color-black: #000;
 $color-white: #fff;
+$color-brown: #a77c09;
+$color-greenblack: #292f28;
+$color-darkgrey: gray;
 // colors end
 
 
 // classes
 .btn-yellow {
 	height: 42px;
-	background-color: $color-button;
+	background-color: $color-brown;
 	&:hover:not(.disable-hover) {
-		background-color: $color-button;
+		background-color: $color-brown;
 	}
 }
 // classes end
 
 ng-component {
-	background: url('../assets/imgs/main-bg.jpg') no-repeat;
-	background-size:  auto 100%;
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background-color: rgba(235, 186, 97, 0.3);
-	}
+	// background: url('../assets/imgs/main-bg.jpg') no-repeat;
+	// background-size:  auto 100%;
+	background-image: linear-gradient(to right, #e0e0e1, #f2f2f4);
 
 	// header set to background transparent
 	// header
