@@ -39,6 +39,8 @@ import { HttpClient } from '@angular/common/http';
  		}
  	}
 
+ 	// https://github.com/Quramy/ionic-apollo-simple-app
+
 
  	getList(){
  		this.apollo
