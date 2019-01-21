@@ -5,12 +5,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyApp } from './app.component';
 import { HomePageModule } from '../pages/home/home.module';
+
+
+
 import { HttpClientModule ,HttpHeaders} from "@angular/common/http";
-import { ApolloModule, APOLLO_OPTIONS } from "apollo-angular";
+import { ApolloModule, APOLLO_OPTIONS,Apollo } from "apollo-angular";
 import { HttpLinkModule, HttpLink } from "apollo-angular-link-http";
 import { ApolloLink, concat } from 'apollo-link';
 import { InMemoryCache } from "apollo-cache-inmemory";
-import {Apollo} from 'apollo-angular';
+import { ApolloClient } from 'apollo-client';
+import { HttpModule } from '@angular/http';
+import graphql from 'graphql-anywhere'
+
 
 
 
@@ -24,7 +30,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 });
 
 
-@NgModule({
+@NgModule({ 
   declarations: [ 
   MyApp, 
   ], 
@@ -33,6 +39,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   HttpClientModule,
   ApolloModule,
   HttpLinkModule,
+  HttpModule,
   IonicModule.forRoot(MyApp),
   HomePageModule
   ],
@@ -47,18 +54,25 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   HttpLink,
   Apollo,
   {provide: ErrorHandler, useClass: IonicErrorHandler},
-  {
-    provide: APOLLO_OPTIONS,
-    useFactory(httpLink: HttpLink) {
-      return {
-        cache: new InMemoryCache(),
-        link: concat(authMiddleware, httpLink.create({
-          uri: "http://www.sunrichrice.com/graphql/"
-        }))
-      }
-    },
-    deps: [HttpLink]
-  }
   ],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(
+    apollo: Apollo,
+    httpLink: HttpLink 
+    ) {
+
+    // if token is used uncmment this AND header section
+    // let token = "";
+
+    apollo.create({
+      link: httpLink.create({
+        uri: "http://www.sunrichrice.com/graphql/",    
+        // headers: new HttpHeaders({
+          //   authorization: "Bearer " + token
+          // })
+        }),
+      cache: new InMemoryCache()
+    });
+  }
+}

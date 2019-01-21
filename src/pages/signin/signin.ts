@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag'; 
-import { ApolloClient } from 'apollo-client';
+import {ApolloClient}  from 'apollo-client';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { HttpClient } from '@angular/common/http';
+import gql from 'graphql-tag'; 
+import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 /**
  * Generated class for the SigninPage page.
  *
@@ -22,8 +24,12 @@ import { HttpClient } from '@angular/common/http';
  export class SigninPage {
  	userDetail: Object = {}; 
  	uri: string;
+ 	client: any;
  	constructor(public navCtrl: NavController, public navParams: NavParams, public apollo: Apollo) {
-
+ 		// this.client = new ApolloClient({
+ 			// 	uri: 'https://graphql.example.com'
+ 			// });
+ 		console.log(this.client, 'clinet');
  	}
 
  	ionViewDidLoad() {
@@ -43,8 +49,7 @@ import { HttpClient } from '@angular/common/http';
 
 
  	getList(){
- 		this.apollo
- 		.watchQuery({ 
+ 		this.apollo.watchQuery({ 
  			query: gql`
  			query{
  				products {
@@ -58,8 +63,11 @@ import { HttpClient } from '@angular/common/http';
  				}}
  				`,
  			})
- 		.valueChanges.subscribe(result => {
+ 		.valueChanges.subscribe(result =>{
  			console.log(result, 'result');
- 		});
+ 		})
+ 		// .valueChanges.pipe(map(result => {
+ 			// 	console.log(result.data, 'result');
+ 			// }));
+ 		}
  	}
- }
